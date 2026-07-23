@@ -9,6 +9,8 @@ def check_password(password, settings):
     digits = set(string.digits)
 
 
+
+
     if settings["uppercase"] and not password.intersection(uppercase):
         return False
 

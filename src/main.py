@@ -25,17 +25,20 @@ password_settings = {
 
 required = sum(password_settings.values())
 
-print()
-
 while True:
-    print(f"WARNING: The password length must be at least {required} characters long.")
-    length_password = input("Password length: ")
+    if required > 0:
+        print()
+        print(f"WARNING: The password length must be at least {required} characters long.")
+        length_password = input("Password length: ")
 
-    if length_password.isdigit() and int(length_password) >= required:
-        length_password = int(length_password)
+        if length_password.isdigit() and int(length_password) >= required:
+            length_password = int(length_password)
+            break
+    else:
+        length_password = 0
         break
 
-password = password_generator(length_password, password_settings)
+password = password_generator(length_password, password_settings, required)
 
 print()
 print("Generated password:")
